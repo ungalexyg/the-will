@@ -49,6 +49,13 @@ contract customWill {
     }
 
     /**
+     * review inheritance list
+     */
+    // function reviewInheritance() public view onlyOwner returns(mapping(address => uint)) {
+    //     return inheritance;
+    // }
+
+    /**
      * set fortune inheritance payouts
      */
     function setInheritance(address payable wallet, uint256 amount)
@@ -72,14 +79,16 @@ contract customWill {
      */
     function payout() private mustBeDeceased {
         for (uint256 i = 0; i < familyWallets.length; i++) {
-            // grab the current familiy memeber wallet from the predefined familyWallets array
-            address payable familyMemberWallet = familyWallets[i];
+            // # grab the current familiy memeber wallet from the predefined familyWallets array
+            // address payable familyMemberWallet = familyWallets[i];
 
-            // grab the current familiy memeber inheritance amount from the predefined list inheritance mapping
-            uint256 familyMemberInheritance = inheritance[familyMemberWallet];
+            // # grab the current familiy memeber inheritance amount from the predefined list inheritance mapping
+            // uint familyMemberInheritance = inheritance[familyMemberWallet];
 
-            // transferring funds from contract address to reciever address
-            familyMemberWallet.transfer(familyMemberInheritance);
+            // # transferring funds from contract address to reciever address
+            // familyMemberWallet.transfer(familyMemberInheritance);
+
+            familyWallets[i].transfer(inheritance[familyWallets[i]]);
         }
     }
 }
