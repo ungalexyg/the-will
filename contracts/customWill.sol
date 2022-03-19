@@ -2,7 +2,9 @@
 pragma solidity ^0.8.4;
 
 contract customWill {
-    // define properties
+    /**
+     * define properties
+     */
     uint256 fortune;
     bool isDeceased;
     address owner;
@@ -10,7 +12,7 @@ contract customWill {
     mapping(address => uint256) inheritance;
 
     /**
-     * set initial properties
+     * set initial props values
      */
     constructor() payable {
         owner = msg.sender;
