@@ -2,9 +2,7 @@
 pragma solidity ^0.8.4;
 
 contract customWill {
-    /**
-     * define properties
-     */
+    // define properties
     uint256 fortune;
     bool isDeceased;
     address owner;
@@ -12,7 +10,7 @@ contract customWill {
     mapping(address => uint256) inheritance;
 
     /**
-     * set initial props values
+     * set initial properties
      */
     constructor() payable {
         owner = msg.sender;
@@ -34,6 +32,20 @@ contract customWill {
     modifier mustBeDeceased() {
         require(isDeceased == true);
         _;
+    }
+
+    /**
+     * get the fortune value "report"
+     */
+    function reviewFortune() public view onlyOwner returns (uint256) {
+        return fortune;
+    }
+
+    /**
+     * save to the fortune
+     */
+    function addFortune(uint256 savings) public onlyOwner {
+        fortune = fortune + savings;
     }
 
     /**
