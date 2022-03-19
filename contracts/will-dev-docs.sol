@@ -34,7 +34,7 @@ tx.origin (address): sender of the transaction (full call chain)
  *
  */
 
-contract Will {
+contract devWill {
     /**
      * -------------------------------
      * properties
