@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.4;
 
-contract customWill {
+contract TheWill {
     // define properties
     uint256 fortune;
     bool isDeceased;
